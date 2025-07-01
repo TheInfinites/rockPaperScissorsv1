@@ -97,7 +97,7 @@ function playGame() {
 
 }
 
-playGame()
+// playGame()
 
 //getComputerChoice();
 //getHumanChoice();

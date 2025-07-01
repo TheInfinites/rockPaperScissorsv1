@@ -1,0 +1,24 @@
+.container {
+    margin: 0 auto;
+    max-width: 500px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.button-container {
+    width: 100%;
+    margin: auto 0;
+    display: flex;
+    justify-content:space-evenly;
+
+}
+
+button {
+    width: 150px;
+    height: 50px;
+    border-radius: 50px;
+    color: white;
+    background-color: black;
+    border-width: 0;
+}
