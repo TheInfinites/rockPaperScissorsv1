@@ -1,36 +1,40 @@
-// selecting buttons
+// selecting stuff
 const btn = document.querySelector(".button-container");
+const playerPara = document.querySelector(".player-para");
+const comPara = document.querySelector(".com-para");
+const scorePara = document.querySelector(".score-para");
+const totalRound = document.querySelector("input");
+const btnStart = document.querySelector("#start");
 
 // player scores
 let humanScore = 0;
 let computerScore = 0;
+let key = 0
+let roundInput = 0;
 
+//----------------------------------------------------------------------
+
+
+// rest button
+btnStart.addEventListener("mouseup", () => {
+    key = 0;
+    roundInput = 0;
+    roundInput = Number(totalRound.value);
+    if (roundInput % 2 == 0){
+        roundInput = roundInput + 1;
+        console.log(roundInput);
+    }
+
+    playerPara.textContent = `....`
+    comPara.textContent = `....`
+    scorePara.textContent = `....`
+    humanScore = 0;
+    computerScore = 0;
+})
 //-----------------------------------------------------------------------
 
 
 // computer choice
-function getComputerChoice() {
-    let computerChoice;
-
-    // generating a random number between 1 and 4
-    const minNum = Math.ceil(1);
-    const maxNum = Math.floor(4);
-    const randomNumber = Math.floor(Math.random() * (maxNum - minNum) + minNum);
-
-    // generating the computer choice based on the random number
-    if (randomNumber == 1) {
-        computerChoice = "rock";
-    }
-    else if (randomNumber == 2) {
-        computerChoice = "paper";
-    }
-    else {
-        computerChoice = "scissors";
-    }
-
-    //console.log(computerChoice);
-    return computerChoice;   
-}
 
 // player move logic
 btn.addEventListener("mouseup", (e) => {
@@ -55,14 +59,43 @@ btn.addEventListener("mouseup", (e) => {
                 console.log(humanChoice);
                 break;
         }
+        playerPara.textContent = `You have chosen ${humanChoice}!`
         return humanChoice;
     }
+
+
+    function getComputerChoice() {
+        let computerChoice;
     
+        // generating a random number between 1 and 4
+        const minNum = Math.ceil(1);
+        const maxNum = Math.floor(4);
+        const randomNumber = Math.floor(Math.random() * (maxNum - minNum) + minNum);
+    
+        // generating the computer choice based on the random number
+        if (randomNumber == 1) {
+            computerChoice = "rock";
+        }
+        else if (randomNumber == 2) {
+            computerChoice = "paper";
+        }
+        else {
+            computerChoice = "scissors";
+        }
+    
+        comPara.textContent = `Computer have chosen ${computerChoice}!`
+        //console.log(computerChoice);
+        return computerChoice;   
+    }
+    
+
+// ----------------------------------------------------------------------------------
+
 
     function playRound(humanChoice, computerChoice) {
         let hc = humanChoice;
         let cc = computerChoice;
-    
+
         if (hc === cc) {
             console.log("It's a tie");
             humanScore += 1;
@@ -91,13 +124,19 @@ btn.addEventListener("mouseup", (e) => {
             console.log("Yeah, you lost man");
             computerScore += 1;
             humanScore += 0;
-        }  
+        }
+        scorePara.textContent = `Current score is: You = ${humanScore} and Computer = ${computerScore}`  
         console.log(`Current score is: You = ${humanScore} and Computer = ${computerScore}`);
-    }
+    };
 
-    playRound(getHumanChoice(), getComputerChoice());
+
+    if (key < roundInput){
+        console.log(roundInput);
+        key++;
+        console.log(key)
+        playRound(getHumanChoice(), getComputerChoice());
+    }
 })
 
 //-----------------------------------------------------------------------
-
 

@@ -6,19 +6,71 @@
     justify-content: center;
 }
 
-.button-container {
-    width: 100%;
-    margin: auto 0;
+.all {
     display: flex;
-    justify-content:space-evenly;
-
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
 }
 
-button {
+
+.button-container {
+    display: flex;
+    justify-content:space-between;
+}
+
+.button-container > button {
     width: 150px;
     height: 50px;
     border-radius: 50px;
     color: white;
     background-color: black;
     border-width: 0;
+    padding: 0;
+    margin: 0;
+}
+
+.com-choice {
+    text-align: right;
+    border-bottom: 0.1px dotted black;
+}
+
+.player-para, .com-para {
+    padding: 0;
+}
+
+.score {
+    border-bottom: 0.1px dotted black;
+}
+
+
+.game-controls {    
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.game-controls > button, input {
+    width: 150px;
+    height: 50px;
+    border-radius: 50px;
+}
+
+.game-controls > button {
+    background-color: navajowhite;
+    border: 0.1px solid navajowhite;
+}
+
+
+.game-controls > #ghost {
+    opacity: 0;
+}
+input {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+    border: 0.1px dotted black;
+    background-color: white;
+    -moz-appearance: textfield;
 }
