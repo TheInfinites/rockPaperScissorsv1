@@ -4,6 +4,7 @@
     height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 .all {
@@ -11,6 +12,7 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
+    height: max-content;
 }
 
 
@@ -28,11 +30,28 @@
     border-width: 0;
     padding: 0;
     margin: 0;
+    transition: 0.05s;
 }
 
+#rock.pressed {
+    transform: scale(0.95);
+}
+
+#paper.pressed {
+    transform: scale(0.95);
+}
+
+#scissors.pressed {
+    transform: scale(0.95);
+}
 .com-choice {
     text-align: right;
     border-bottom: 0.1px dotted black;
+}
+
+.player-choice {
+    /* border-bottom: 0.1px dotted black; */
+    margin-bottom: 20px; 
 }
 
 .player-para, .com-para {
@@ -66,11 +85,14 @@
     opacity: 0;
 }
 input {
-    height: 100%;
     padding: 0px;
     margin: 0px;
     text-align: center;
     border: 0.1px dotted black;
     background-color: white;
-    -moz-appearance: textfield;
+}
+
+.final {
+    border-bottom: 0.1px dotted black;
+    /* border-top: 0.1px dotted black;     */
 }

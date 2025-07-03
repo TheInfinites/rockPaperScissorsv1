@@ -5,12 +5,13 @@ const comPara = document.querySelector(".com-para");
 const scorePara = document.querySelector(".score-para");
 const totalRound = document.querySelector("input");
 const btnStart = document.querySelector("#start");
+const finalPara = document.querySelector(".final-para");
 
 // player scores
 let humanScore = 0;
 let computerScore = 0;
 let key = 0
-let roundInput = 0;
+let roundInput = 3;
 
 //----------------------------------------------------------------------
 
@@ -28,13 +29,45 @@ btnStart.addEventListener("mouseup", () => {
     playerPara.textContent = `....`
     comPara.textContent = `....`
     scorePara.textContent = `....`
+    finalPara.textContent = `....`
     humanScore = 0;
     computerScore = 0;
 })
 //-----------------------------------------------------------------------
 
+btn.addEventListener("mousedown", (e) => {
+    let target = e.target;
+    switch (target.id) {
+        case "rock":
+            target.classList.add("pressed");
+            break;
+        
+        case "paper":
+            target.classList.add("pressed");
+            break;
+        
+        case "scissors":
+            target.classList.add("pressed");
+            break;
+    }
+})
 
-// computer choice
+btn.addEventListener("mouseup", (e) => {
+    let target = e.target;
+    switch (target.id) {
+        case "rock":
+            target.classList.remove("pressed");
+            break;
+        
+        case "paper":
+            target.classList.remove("pressed");
+            break;
+        
+        case "scissors":
+            target.classList.remove("pressed");
+            break;
+    }
+})
 
 // player move logic
 btn.addEventListener("mouseup", (e) => {
@@ -46,16 +79,19 @@ btn.addEventListener("mouseup", (e) => {
         switch (target.id) {
             case "rock":
                 humanChoice = "rock"
+                // target.classList.remove("pressed");
                 console.log(humanChoice);
                 break;
     
             case "paper":
                 humanChoice = "paper";
+                // target.classList.remove("pressed")
                 console.log(humanChoice);
                 break;
     
             case "scissors":
                 humanChoice = "scissors";
+                // target.classList.remove("pressed")
                 console.log(humanChoice);
                 break;
         }
@@ -125,7 +161,7 @@ btn.addEventListener("mouseup", (e) => {
             computerScore += 1;
             humanScore += 0;
         }
-        scorePara.textContent = `Current score is: You = ${humanScore} and Computer = ${computerScore}`  
+        scorePara.textContent = `Current score: You = ${humanScore} and Computer = ${computerScore}`  
         console.log(`Current score is: You = ${humanScore} and Computer = ${computerScore}`);
     };
 
@@ -135,6 +171,10 @@ btn.addEventListener("mouseup", (e) => {
         key++;
         console.log(key)
         playRound(getHumanChoice(), getComputerChoice());
+    }
+    
+    if (key >= roundInput){
+        humanScore > computerScore ? finalPara.textContent = "Congrats, you won!" : finalPara.textContent = "Thanks for ending the world";
     }
 })
 
