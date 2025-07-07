@@ -6,6 +6,7 @@ const scorePara = document.querySelector(".score-para");
 const totalRound = document.querySelector("input");
 const btnStart = document.querySelector("#start");
 const finalPara = document.querySelector(".final-para");
+const displayRound = document.querySelector(".round-para");
 
 // player scores
 let humanScore = 0;
@@ -26,12 +27,13 @@ btnStart.addEventListener("mouseup", () => {
         console.log(roundInput);
     }
 
-    playerPara.textContent = `....`
-    comPara.textContent = `....`
-    scorePara.textContent = `....`
-    finalPara.textContent = `....`
     humanScore = 0;
     computerScore = 0;
+    playerPara.textContent = `....`
+    comPara.textContent = `....`
+    scorePara.textContent = `Score: You = ${humanScore} and Computer = ${computerScore}`
+    finalPara.textContent = `....`
+    displayRound.textContent = `....`
 })
 //-----------------------------------------------------------------------
 
@@ -134,34 +136,41 @@ btn.addEventListener("mouseup", (e) => {
 
         if (hc === cc) {
             console.log("It's a tie");
+            displayRound.textContent = "It's a tie"
             humanScore += 1;
             computerScore += 1;
         } else if (hc == "rock" && cc == "paper") {
             console.log("Compter wins sucker!");
+            displayRound.textContent = "Compter wins sucker!"
             computerScore += 1;
             humanScore += 0;
         } else if (hc == "rock" && cc == "scissors") {
             console.log("You win this round!");
+            displayRound.textContent = "You won this round!"
             humanScore +=1;
             computerScore += 0;
         } else if (hc == "scissors" && cc == "rock") {
             console.log("Computer wins bro!!");
+            displayRound.textContent = "You lost this round. Have some shame."
             computerScore += 1;
             humanScore += 0;
         } else if (hc == "scissors" && cc == "paper") {
             console.log("Damn, you win");
+            displayRound.textContent = "Damn, you won this round"
             humanScore +=1;
             computerScore += 0;
         } else if (hc == "paper" && cc == "rock") {
             console.log("How about that, you win!")
+            displayRound.textContent = "Damn, you won this round"
             humanScore += 1;
             computerScore += 0
         } else if (hc == "paper" && cc == "scissors") {
             console.log("Yeah, you lost man");
+            displayRound.textContent = "You lost this round. Die."
             computerScore += 1;
             humanScore += 0;
         }
-        scorePara.textContent = `Current score: You = ${humanScore} and Computer = ${computerScore}`  
+        scorePara.textContent = `Score: You = ${humanScore} and Computer = ${computerScore}`  
         console.log(`Current score is: You = ${humanScore} and Computer = ${computerScore}`);
     };
 

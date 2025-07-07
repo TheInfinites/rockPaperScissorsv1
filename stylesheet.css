@@ -1,3 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+p {
+    font-family: "Roboto Mono", monospace;
+}
+
+
 .container {
     margin: 0 auto;
     max-width: 500px;
@@ -19,6 +26,11 @@
 .button-container {
     display: flex;
     justify-content:space-between;
+
+}
+
+button, input {
+    font-family: "Roboto Mono", monospace;
 }
 
 .button-container > button {
@@ -96,3 +108,13 @@ input {
     border-bottom: 0.1px dotted black;
     /* border-top: 0.1px dotted black;     */
 }
+
+.dispRound {
+    /* margin-bottom: 20px; */
+    border-bottom: 0.1px dotted black;
+    text-align: center;
+    /* font-family: "Roboto Mono", monospace; */
+    background-color: black;
+    color: white;
+
+}   
